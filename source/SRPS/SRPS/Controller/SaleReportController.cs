@@ -9,13 +9,32 @@ namespace SRPS.Controller
 {
     public class SaleReportController
     {
+        SaleRecordModel model = new SaleRecordModel();
         public List<SaleRecordModel> GetAllSaleRecord()
         {
             SaleRecordDBModel datas = new SaleRecordDBModel();
-            datas.GetConnectionString("localhost", "srps", "root", "");
-            List<SaleRecordModel> listdata = datas.GetALLSaleRecord();
             
-            return listdata;
+            datas.GetConnectionString("localhost", "test", "root", ""); //1
+            
+            return datas.GetALLSaleRecord();
+        }
+
+        public SaleRecordModel GetValueByID(string id)
+        {
+            SaleRecordDBModel datas = new SaleRecordDBModel();
+
+            datas.GetConnectionString("localhost", "test", "root", ""); //1
+
+            return datas.GetSaleRecordByID(id);
+        }
+
+        //edit
+       public bool UpdateData(SaleRecordModel newData)
+        {
+            SaleRecordDBModel datas = new SaleRecordDBModel();
+            datas.GetConnectionString("localhost", "test", "root", "");
+
+            return datas.GetUpdateValue(newData);
         }
     }
 }
