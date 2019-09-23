@@ -16,3 +16,23 @@ C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\SRPS\SRPS\bin\Debug\Google.Protobuf.xm
 C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\SRPS\SRPS\bin\Debug\MySql.Data.xml
 C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\SRPS\SRPS\bin\Debug\Renci.SshNet.xml
 C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\SRPS\SRPS\obj\Debug\SRPS.csproj.CopyComplete
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\SRPS.exe.config
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\SRPS.exe
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\SRPS.pdb
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\Google.Protobuf.dll
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\MySql.Data.dll
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\Renci.SshNet.dll
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\Google.Protobuf.xml
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\MySql.Data.xml
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\bin\Debug\Renci.SshNet.xml
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.csprojAssemblyReference.cache
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.SalesRecord.resources
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.Properties.Resources.resources
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.csproj.GenerateResource.cache
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.csproj.CoreCompileInputs.cache
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.csproj.CopyComplete
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.exe
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.pdb
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.Edit.resources
+C:\Users\Junting Cen\Desktop\PSP\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.SaleReport.resources

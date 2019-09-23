@@ -27,7 +27,6 @@ namespace SRPS
         private void LoadDataToSaleReport()
         {
             SaleReportController controller = new SaleReportController();
-            int i = 0;
             foreach (var data in controller.GetAllSaleRecord())
             {
                 saleRecordModelBindingSource.Add(data);
@@ -53,7 +52,9 @@ namespace SRPS
             {
                 //get the id of that row
                 DataGridViewRow gvr = dgvSaleReport.Rows[e.RowIndex];
-                MessageBox.Show("you want to edit item with ID: " + gvr.Cells[0].Value.ToString());
+                Edit edit = new Edit(Convert.ToInt32(gvr.Cells[0].Value.ToString()));
+                edit.Owner = this;
+                edit.Show();
             }
             if (dgvSaleReport.Columns[e.ColumnIndex].Name == "colRemove")
             {
@@ -61,6 +62,11 @@ namespace SRPS
                 DataGridViewRow gvr = dgvSaleReport.Rows[e.RowIndex];
                 MessageBox.Show("you want to delete item with ID: " + gvr.Cells[0].Value.ToString());
             }
+        }
+
+        private void SaleReport_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

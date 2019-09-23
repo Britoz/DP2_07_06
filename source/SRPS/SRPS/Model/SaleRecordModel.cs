@@ -14,6 +14,7 @@ namespace SRPS.Model
         private string _staffName;
         private string _date;
         private string _time;
+        private string _salesid;
 
         public string Id
         {
@@ -26,6 +27,8 @@ namespace SRPS.Model
                 _id = value;
             }
         }
+
+        
 
         public int TotalPrice
         {
@@ -79,6 +82,8 @@ namespace SRPS.Model
             }
         }
 
+        public string Salesid { get => _salesid; set => _salesid = value; }
+
         //properties
 
         //constructor
@@ -87,8 +92,9 @@ namespace SRPS.Model
 
         }
 
-        public SaleRecordModel(string id, string staffName,int totalPrice, string date, string time)
+        public SaleRecordModel(string id, string staffName,int totalPrice, string date, string time,string saleid)
         {
+            _salesid = saleid;
             StaffName = staffName;
             TotalPrice = totalPrice;
             Date = date;
