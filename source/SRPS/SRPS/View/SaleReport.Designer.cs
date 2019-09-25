@@ -32,13 +32,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSaleReport = new System.Windows.Forms.DataGridView();
             this.colEditButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saleRecordModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSaleReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleRecordModelBindingSource)).BeginInit();
@@ -48,9 +48,9 @@
             // 
             this.groupBox1.Controls.Add(this.dgvSaleReport);
             this.groupBox1.Location = new System.Drawing.Point(9, 90);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(731, 324);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -67,14 +67,13 @@
             this.staffNameDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn,
             this.timeDataGridViewTextBoxColumn,
-            this.colEditButton,
-            this.colRemove});
+            this.colEditButton});
             this.dgvSaleReport.DataSource = this.saleRecordModelBindingSource;
-            this.dgvSaleReport.Location = new System.Drawing.Point(4, 25);
-            this.dgvSaleReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvSaleReport.Location = new System.Drawing.Point(0, 28);
+            this.dgvSaleReport.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSaleReport.Name = "dgvSaleReport";
             this.dgvSaleReport.RowTemplate.Height = 24;
-            this.dgvSaleReport.Size = new System.Drawing.Size(722, 294);
+            this.dgvSaleReport.Size = new System.Drawing.Size(643, 292);
             this.dgvSaleReport.TabIndex = 0;
             this.dgvSaleReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSaleReport_CellContentClick);
             // 
@@ -83,12 +82,6 @@
             this.colEditButton.HeaderText = "Edit";
             this.colEditButton.Name = "colEditButton";
             this.colEditButton.Text = "Edit";
-            // 
-            // colRemove
-            // 
-            this.colRemove.HeaderText = "Remove";
-            this.colRemove.Name = "colRemove";
-            this.colRemove.Text = "Remove";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -128,9 +121,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(749, 424);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SaleReport";
             this.Text = "SaleReport";
             this.Load += new System.EventHandler(this.SaleReport_Load);
@@ -152,6 +146,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn colEditButton;
-        private System.Windows.Forms.DataGridViewButtonColumn colRemove;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

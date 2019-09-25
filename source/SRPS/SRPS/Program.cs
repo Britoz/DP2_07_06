@@ -16,7 +16,7 @@ namespace SRPS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SaleReport());
+            Application.Run(new SalesRecord());
         }
     }
 }

@@ -56,12 +56,7 @@ namespace SRPS
                 edit.Owner = this;
                 edit.Show();
             }
-            if (dgvSaleReport.Columns[e.ColumnIndex].Name == "colRemove")
-            {
-                //get the id of that row
-                DataGridViewRow gvr = dgvSaleReport.Rows[e.RowIndex];
-                MessageBox.Show("you want to delete item with ID: " + gvr.Cells[0].Value.ToString());
-            }
+           
         }
 
         private void SaleReport_Load(object sender, EventArgs e)

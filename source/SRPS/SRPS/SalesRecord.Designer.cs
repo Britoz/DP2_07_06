@@ -35,6 +35,12 @@
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.textBoxSerialNumber = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.colEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ColunmNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityproduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceproduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grosspriceproduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblItems = new System.Windows.Forms.Label();
             this.lblSalesNumber = new System.Windows.Forms.Label();
@@ -48,12 +54,7 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.newtextBoxQuantity = new System.Windows.Forms.TextBox();
-            this.colEdit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ColunmNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityproduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceproduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grosspriceproduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -152,6 +153,44 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
+            // colEdit
+            // 
+            this.colEdit.HeaderText = "Edit";
+            this.colEdit.Name = "colEdit";
+            // 
+            // ColunmNumber
+            // 
+            this.ColunmNumber.HeaderText = "No.";
+            this.ColunmNumber.MinimumWidth = 8;
+            this.ColunmNumber.Name = "ColunmNumber";
+            this.ColunmNumber.Width = 50;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.MinimumWidth = 8;
+            this.name.Name = "name";
+            this.name.Width = 250;
+            // 
+            // quantityproduct
+            // 
+            this.quantityproduct.HeaderText = "Price/unit";
+            this.quantityproduct.MinimumWidth = 8;
+            this.quantityproduct.Name = "quantityproduct";
+            // 
+            // priceproduct
+            // 
+            this.priceproduct.HeaderText = "Quantity";
+            this.priceproduct.MinimumWidth = 8;
+            this.priceproduct.Name = "priceproduct";
+            // 
+            // grosspriceproduct
+            // 
+            this.grosspriceproduct.HeaderText = "GrossPrice";
+            this.grosspriceproduct.MinimumWidth = 8;
+            this.grosspriceproduct.Name = "grosspriceproduct";
+            this.grosspriceproduct.Width = 150;
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.LightSalmon;
@@ -235,7 +274,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(736, 235);
+            this.label6.Location = new System.Drawing.Point(647, 141);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 20);
@@ -245,10 +284,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(720, 304);
+            this.btnSave.Location = new System.Drawing.Point(797, 287);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(95, 47);
+            this.btnSave.Size = new System.Drawing.Size(73, 34);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -258,7 +297,7 @@
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(797, 183);
+            this.lblTime.Location = new System.Drawing.Point(705, 212);
             this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(0, 20);
@@ -269,7 +308,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(759, 261);
+            this.lblTotal.Location = new System.Drawing.Point(705, 192);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(0, 20);
@@ -280,7 +319,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(678, 183);
+            this.lblDate.Location = new System.Drawing.Point(705, 165);
             this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(0, 20);
@@ -294,43 +333,15 @@
             this.newtextBoxQuantity.Size = new System.Drawing.Size(100, 20);
             this.newtextBoxQuantity.TabIndex = 0;
             // 
-            // colEdit
+            // button1
             // 
-            this.colEdit.HeaderText = "Edit";
-            this.colEdit.Name = "colEdit";
-            // 
-            // ColunmNumber
-            // 
-            this.ColunmNumber.HeaderText = "No.";
-            this.ColunmNumber.MinimumWidth = 8;
-            this.ColunmNumber.Name = "ColunmNumber";
-            this.ColunmNumber.Width = 50;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.MinimumWidth = 8;
-            this.name.Name = "name";
-            this.name.Width = 250;
-            // 
-            // quantityproduct
-            // 
-            this.quantityproduct.HeaderText = "Price/unit";
-            this.quantityproduct.MinimumWidth = 8;
-            this.quantityproduct.Name = "quantityproduct";
-            // 
-            // priceproduct
-            // 
-            this.priceproduct.HeaderText = "Quantity";
-            this.priceproduct.MinimumWidth = 8;
-            this.priceproduct.Name = "priceproduct";
-            // 
-            // grosspriceproduct
-            // 
-            this.grosspriceproduct.HeaderText = "GrossPrice";
-            this.grosspriceproduct.MinimumWidth = 8;
-            this.grosspriceproduct.Name = "grosspriceproduct";
-            this.grosspriceproduct.Width = 150;
+            this.button1.Location = new System.Drawing.Point(797, 326);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(73, 34);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Report";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_2);
             // 
             // SalesRecord
             // 
@@ -338,6 +349,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(882, 399);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.groupBox2);
@@ -389,6 +401,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityproduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceproduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn grosspriceproduct;
+        private System.Windows.Forms.Button button1;
     }
 }
 

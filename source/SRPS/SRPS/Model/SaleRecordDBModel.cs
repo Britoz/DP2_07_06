@@ -11,7 +11,7 @@ namespace SRPS.Model
     {
         public List<SaleRecordModel> GetALLSaleRecord()
         {
-            //since this is a lot of sales record, so I use list
+            //since this is a lot of sales record, use list
             List<SaleRecordModel> listData = new List<SaleRecordModel>();
             string txt = "select * from salesrecord";
             MySqlCommand command = new MySqlCommand(txt, Connection);
@@ -75,6 +75,29 @@ namespace SRPS.Model
             }
             Connection.Close();
             return true;
+        }
+
+        public bool GetDeleteData(SaleRecordModel data)
+        {
+            SaleRecordModel ldata = new SaleRecordModel();
+            //since this is a lot of sales record, use list
+            string deleteQuery = "DELETE FROM `salesrecord` WHERE id = " + data.Id;
+            MySqlCommand command = new MySqlCommand(deleteQuery, Connection);
+            Connection.Open();
+            MySqlDataReader r = command.ExecuteReader();
+            while (r.Read())
+            {
+                ldata.Id = r[0].ToString();
+                ldata.TotalPrice = (int)r[2];
+                ldata.StaffName = r[3].ToString();
+                ldata.Date = r[4].ToString();
+                ldata.Time = r[5].ToString();
+
+            }
+            r.Close();
+            command.ExecuteNonQuery();
+                Connection.Close();
+                return true;
         }
     }
 }

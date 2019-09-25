@@ -17,6 +17,7 @@ namespace SRPS
     {
         public int id = 0;
         public int saleId = 0;
+        private SaleReport salesReport; 
         public Edit()
         {
             InitializeComponent();
@@ -25,19 +26,14 @@ namespace SRPS
         {
             InitializeComponent();
             SaleReportController controller = new SaleReportController();
-
+            
             //get the sale record by ID
             SaleRecordModel saleEdit = controller.GetValueByID(data.ToString());
             id = data;
             Display(saleEdit);
         }
 
-        public Edit(string data, int quantity)
-        {
-            InitializeComponent();
-            //Display(data);
-            txtTotalPrice.Text = quantity.ToString();
-        }
+       
         private void Display(SaleRecordModel data)
         {
             txtStaffName.Text = data.StaffName;
@@ -51,7 +47,6 @@ namespace SRPS
 
         private void  Btsave_Click(object sender, EventArgs e)
         {
-
             SaleRecordModel inputData = new SaleRecordModel();
             inputData.Id = id.ToString();
             inputData.StaffName = txtStaffName.Text;
@@ -61,15 +56,13 @@ namespace SRPS
 
             SaleReportController controller = new SaleReportController();
             bool update = controller.UpdateData(inputData);
-           
-            
+            SaleReport saleReport = new SaleReport();
             if (update == true)
             {
-                SaleReport report = new SaleReport();
-               
-                report.Show();
-                this.Owner.Hide();
                 MessageBox.Show("Update successfully");
+
+                this.Owner.Show();
+
 
                //saleReport.Show();
                 Close();
@@ -89,40 +82,7 @@ namespace SRPS
 
         private void Edit_Load(object sender, EventArgs e)
         {
-        }
 
-        private void BtDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SaleRecordModel inputData = new SaleRecordModel();
-                inputData.Id = id.ToString();
-                inputData.StaffName = "";
-                inputData.Time = "";
-                inputData.Date = "";
-                inputData.TotalPrice = 0;
-
-                SaleReportController controller = new SaleReportController();
-                bool delete = controller.DeleteValue(inputData);
-                if(delete == true)
-                {
-                    SaleReport report = new SaleReport();
-                    report.Show();
-                    this.Owner.Hide();
-                    MessageBox.Show("Delete successfully");
-                    
-                    Close();
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Unsuccessfully delete");
-                }
-                
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
     }
 }

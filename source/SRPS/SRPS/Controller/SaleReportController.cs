@@ -27,9 +27,16 @@ namespace SRPS.Controller
 
             return datas.GetSaleRecordByID(id);
         }
+        public bool DeleteValue(SaleRecordModel deletData)
+        {
+            SaleRecordDBModel datas = new SaleRecordDBModel();
 
+            datas.GetConnectionString("localhost", "test", "root", ""); //1
+            
+            return datas.GetDeleteData(deletData);
+        }
         //edit
-       public bool UpdateData(SaleRecordModel newData)
+        public bool UpdateData(SaleRecordModel newData)
         {
             SaleRecordDBModel datas = new SaleRecordDBModel();
             datas.GetConnectionString("localhost", "test", "root", "");
