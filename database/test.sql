@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2019 at 06:37 AM
--- Server version: 10.1.39-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: Sep 25, 2019 at 07:06 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,29 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `srps`
+-- Database: `test`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `username`, `password`) VALUES
+(1, 'caitlin', 'caitlin'),
+(2, 'dinh', 'dinh'),
+(3, 'lee', 'lee');
 
 -- --------------------------------------------------------
 
@@ -44,9 +65,9 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `name`, `serialnumber`, `description`, `quantity`, `priceperunit`, `dateimport`) VALUES
 (1, 'Liver Detox', 11010, 'Swisse Ultiboost Liver Detox 200 Tablets', 10, 25, '2019-09-12'),
-(2, 'Swisse Hibicus Anti Ageing Night Cream', 2636903, 'Swisse Hibicus Anti Ageing Night Cream 50ml', 20, 13, '2019-09-12'),
-(3, 'Swisse Face Micellar Water Make Up Remover', 2647865, 'Swisse Face Micellar Water Make Up Remover 300ml', 30, 6, '2019-09-12'),
-(4, 'A2 Premium Toddler Stage 3', 2641556, 'A2 Premium Toddler Stage 3 900g', 10, 31, '2019-09-12');
+(2, 'Swisse Hibicus Anti Ageing Night Cream', 111110, 'Swisse Hibicus Anti Ageing Night Cream 50ml', 20, 13, '2019-09-12'),
+(3, 'Swisse Face Micellar Water Make Up Remover', 10001, 'Swisse Face Micellar Water Make Up Remover 300ml', 30, 6, '2019-09-12'),
+(4, 'A2 Premium Toddler Stage 3', 10102, 'A2 Premium Toddler Stage 3 900g', 10, 31, '2019-09-12');
 
 -- --------------------------------------------------------
 
@@ -83,14 +104,20 @@ CREATE TABLE `salesrecord` (
 --
 
 INSERT INTO `salesrecord` (`id`, `salesid`, `totalprice`, `staffname`, `date`, `time`) VALUES
-(1, 1, 190, 'Dinh', '14/09/2019', '02:11:00'),
-(2, 2, 52, 'Dinh', '14/09/2019', '02:17:00'),
-(3, 3, 65, 'Dinh', '14/09/2019', '02:21:00'),
-(4, 4, 125, 'Dinh', '14/09/2019', '02:32:00');
+(10, 10, 12, 'Dinh', '24/09/2019', '07:47:00'),
+(11, 11, 43, 'Dinh', '24/09/2019', '07:47:00'),
+(12, 12, 25, 'Dinh', '24/09/2019', '08:48:00'),
+(13, 13, 10, 'Dinh', '25/09/2019', '03:04:00');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `product`
@@ -115,6 +142,12 @@ ALTER TABLE `salesrecord`
 --
 
 --
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
@@ -130,7 +163,7 @@ ALTER TABLE `salesproduct`
 -- AUTO_INCREMENT for table `salesrecord`
 --
 ALTER TABLE `salesrecord`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -73,6 +73,12 @@
     <Compile Include="Edit.Designer.cs">
       <DependentUpon>Edit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\DBModel.cs" />
     <Compile Include="Model\ProductDBModel.cs" />
     <Compile Include="Model\SaleRecordDBModel.cs" />
@@ -94,6 +100,9 @@
     </Compile>
     <EmbeddedResource Include="Edit.resx">
       <DependentUpon>Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesRecord.resx">
       <DependentUpon>SalesRecord.cs</DependentUpon>

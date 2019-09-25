@@ -82,14 +82,7 @@ namespace SRPS
 
       
 
-        private void Txtquantity_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Edit_Load(object sender, EventArgs e)
-        {
-        }
+       
 
         private void BtDelete_Click(object sender, EventArgs e)
         {

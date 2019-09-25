@@ -56,3 +56,4 @@ C:\Users\Junting Cen\Desktop\psp2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.cspr
 C:\Users\Junting Cen\Desktop\psp2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.csproj.CopyComplete
 C:\Users\Junting Cen\Desktop\psp2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.exe
 C:\Users\Junting Cen\Desktop\psp2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.pdb
+C:\Users\Junting Cen\Desktop\psp2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.Login_in.resources

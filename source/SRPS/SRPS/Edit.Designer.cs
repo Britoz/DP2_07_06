@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit));
             this.btcancel = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label2.BackColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(23, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
@@ -73,7 +74,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.label3.BackColor = System.Drawing.Color.Gainsboro;
             this.label3.Location = new System.Drawing.Point(23, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
@@ -83,6 +84,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Gainsboro;
             this.label4.Location = new System.Drawing.Point(26, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
@@ -92,6 +94,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Gainsboro;
             this.label5.Location = new System.Drawing.Point(26, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
@@ -114,7 +117,7 @@
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.Size = new System.Drawing.Size(152, 20);
             this.txtTotalPrice.TabIndex = 8;
-            this.txtTotalPrice.TextChanged += new System.EventHandler(this.Txtquantity_TextChanged);
+
             // 
             // txtStaffName
             // 
@@ -141,7 +144,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(277, 293);
             this.Controls.Add(this.txtTime);
             this.Controls.Add(this.txtDate);
@@ -156,7 +160,7 @@
             this.Controls.Add(this.btcancel);
             this.Name = "Edit";
             this.Text = "Edit";
-            this.Load += new System.EventHandler(this.Edit_Load);
+       
             this.ResumeLayout(false);
             this.PerformLayout();
 
