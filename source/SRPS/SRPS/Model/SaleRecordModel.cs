@@ -82,7 +82,19 @@ namespace SRPS.Model
             }
         }
 
-        public string Salesid { get => _salesid; set => _salesid = value; }
+        public string Salesid
+        {
+            get
+            {
+                return _salesid;
+            }
+
+            set
+            {
+                _salesid = value;
+            }
+        }
+
 
         //properties
 
@@ -94,7 +106,7 @@ namespace SRPS.Model
 
         public SaleRecordModel(string id, string staffName,int totalPrice, string date, string time,string saleid)
         {
-            _salesid = saleid;
+            Salesid = saleid;
             StaffName = staffName;
             TotalPrice = totalPrice;
             Date = date;

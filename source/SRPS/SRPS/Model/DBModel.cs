@@ -11,7 +11,18 @@ namespace SRPS.Model
     {
         private MySqlConnection _connection;
 
-        public MySqlConnection Connection { get => _connection; set => _connection = value; }
+        public MySqlConnection Connection
+        {
+            get
+            {
+                return _connection;
+            }
+
+            set
+            {
+                _connection = value;
+            }
+        }
 
         public void GetConnectionString(string server, string database, string username, string password)
         {
