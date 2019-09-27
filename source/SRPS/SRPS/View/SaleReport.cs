@@ -13,10 +13,27 @@ namespace SRPS
 {
     public partial class SaleReport : Form
     {
+        private string[] monthly = new string[] { "January", "February", "March", "April", "May",
+        "June","July","August","September","October","November","December"};
         public SaleReport()
         {
             InitializeComponent();
             LoadDataToSaleReport();
+            initSetting();
+        }
+
+        public void initSetting()
+        {
+            rbMonthly.Checked = true;
+
+            if(rbMonthly.Checked == true)
+            {
+                foreach(var month in monthly)
+                {
+                    cbChoosing.Items.Add(month);
+                }
+            }
+            cbChoosing.Text = "Choosing month";
         }
 
         private void GroupBox1_Enter(object sender, EventArgs e)
@@ -26,12 +43,22 @@ namespace SRPS
 
         private void LoadDataToSaleReport()
         {
+            saleRecordModelBindingSource.Clear();
             SaleReportController controller = new SaleReportController();
             foreach (var data in controller.GetAllSaleRecord())
             {
                 saleRecordModelBindingSource.Add(data);
             }
-            
+        }
+
+        private void LoadMonthlyData(monthInYear type, int year)
+        {
+            saleRecordModelBindingSource.Clear();
+            SaleReportController controller = new SaleReportController();
+            foreach (var data in controller.GetALlSaleRecordByMonthAndYear(type, year))
+            {
+                saleRecordModelBindingSource.Add(data);
+            }
         }
 
         private void lsvSaleReport_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,6 +89,39 @@ namespace SRPS
         private void SaleReport_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void CbChoosing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RbWeekly_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            int year = 0;
+            try
+            {
+                year = Convert.ToInt32(txtYear.Text);
+
+                if (year >= 2000 && year <= DateTime.Now.Year)
+                {
+                    LoadMonthlyData((monthInYear)cbChoosing.SelectedIndex + 1, year);
+                }
+                else
+                {
+                    MessageBox.Show("invalide year");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("year cannot be empty: " + ex);
+            }
+            
         }
     }
 }

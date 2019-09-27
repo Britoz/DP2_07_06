@@ -9,11 +9,22 @@ namespace SRPS.Controller
 {
     class ProductController
     {
+        connectionSetting connection = new connectionSetting();
+
+        public ProductController()
+        {
+            connection.server = "localhost";
+            connection.database = "srps";
+            connection.username = "root";
+            connection.password = "123456";
+        }
+
         public SalesProductModel GetCurrentInformation(string id)
         {
             ProductDBModel datas = new ProductDBModel();
 
-            datas.GetConnectionString("localhost", "test", "root", ""); //1
+            datas.GetConnectionString(connection.server, 
+                connection.database, connection.username, connection.password); //1
 
             return datas.GetProductByID(id);
         }
