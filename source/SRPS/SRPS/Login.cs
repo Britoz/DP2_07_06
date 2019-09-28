@@ -56,8 +56,8 @@ namespace SRPS
                     {
                         MessageBox.Show("welcome");
                         
-                        SalesRecord record = new SalesRecord();
-                        record.Show();
+                        Main main = new Main();
+                        main.Show();
                         this.Hide();
                         
                     }

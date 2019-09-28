@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SRPS.Controller;
+using MySql.Data.MySqlClient;
+
 
 namespace SRPS
 {
@@ -55,10 +57,27 @@ namespace SRPS
         {
             saleRecordModelBindingSource.Clear();
             SaleReportController controller = new SaleReportController();
+            MySqlConnection connection = new MySqlConnection("server = localhost; database = test; username = root; password=;");
+            string txt = "select sum(totalprice), sum(totalitems) from salesrecord group by year(date)='" + year.ToString() + "'" + ", month(date)='" + type.ToString() + "'";
+            MySqlCommand command = new MySqlCommand(txt, connection);
+            connection.Open();
+            MySqlDataReader r = command.ExecuteReader();
+            MonthlyResult monthlyResult = new MonthlyResult();
+            while (r.Read())
+            {
+                int total = int.Parse(r[0].ToString());
+                int monthly = Convert.ToInt32(type);
+                int totalItems = int.Parse(r[1].ToString());
+
+                monthlyResult.LoadData(year, monthly, total, totalItems);
+            }
+            monthlyResult.Show();
             foreach (var data in controller.GetALlSaleRecordByMonthAndYear(type, year))
             {
                 saleRecordModelBindingSource.Add(data);
             }
+            
+            
         }
 
         private void lsvSaleReport_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,6 +123,7 @@ namespace SRPS
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             int year = 0;
+
             try
             {
                 year = Convert.ToInt32(txtYear.Text);
@@ -121,7 +141,7 @@ namespace SRPS
             {
                 MessageBox.Show("year cannot be empty: " + ex);
             }
-            
+           
         }
     }
 }

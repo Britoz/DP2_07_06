@@ -151,13 +151,14 @@ namespace SRPS
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = connection;
 
-                    cmd.CommandText = "insert into salesrecord(salesid,totalprice,staffname,date,time)values(@salesid,@totalprice," +
-                        "@staffname,@date,@time)";
+                    cmd.CommandText = "insert into salesrecord(salesid,totalprice,staffname,date,time,totalitems)values(@salesid,@totalprice," +
+                        "@staffname,@date,@time,@totalitems)";
                     cmd.Parameters.AddWithValue("@salesid", lblSalesNumber.Text);
                     cmd.Parameters.AddWithValue("@totalprice", lblTotal.Text);
                     cmd.Parameters.AddWithValue("@staffname", txtStaffName.Text);
                     cmd.Parameters.AddWithValue("@date", lblDate.Text);
                     cmd.Parameters.AddWithValue("@time", lblTime.Text);
+                    cmd.Parameters.AddWithValue("@totalitems", lblItems.Text);
 
                     connection.Open();
                     cmd.ExecuteNonQuery();

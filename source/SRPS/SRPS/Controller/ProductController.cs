@@ -16,7 +16,7 @@ namespace SRPS.Controller
             connection.server = "localhost";
             connection.database = "srps";
             connection.username = "root";
-            connection.password = "123456";
+            connection.password = "";
         }
 
         public SalesProductModel GetCurrentInformation(string id)
