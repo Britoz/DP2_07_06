@@ -79,11 +79,23 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\DBModel.cs" />
     <Compile Include="Model\ProductDBModel.cs" />
     <Compile Include="Model\SaleRecordDBModel.cs" />
     <Compile Include="Model\SaleRecordModel.cs" />
     <Compile Include="Model\SalesProductModel.cs" />
+    <Compile Include="MonthlyResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthlyResult.Designer.cs">
+      <DependentUpon>MonthlyResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalesRecord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyResult.resx">
+      <DependentUpon>MonthlyResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesRecord.resx">
       <DependentUpon>SalesRecord.cs</DependentUpon>

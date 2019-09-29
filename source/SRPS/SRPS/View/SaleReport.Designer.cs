@@ -31,13 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSaleReport = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEditButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.saleRecordModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.rbWeekly = new System.Windows.Forms.RadioButton();
             this.rbMonthly = new System.Windows.Forms.RadioButton();
@@ -49,20 +43,26 @@
             this.txtYear = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saleRecordModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSaleReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleRecordModelBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.saleRecordModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvSaleReport);
-            this.groupBox1.Location = new System.Drawing.Point(12, 111);
+            this.groupBox1.Location = new System.Drawing.Point(14, 139);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(975, 399);
+            this.groupBox1.Size = new System.Drawing.Size(1097, 499);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sale Report";
@@ -80,14 +80,125 @@
             this.timeDataGridViewTextBoxColumn,
             this.colEditButton});
             this.dgvSaleReport.DataSource = this.saleRecordModelBindingSource;
-            this.dgvSaleReport.Location = new System.Drawing.Point(0, 34);
+            this.dgvSaleReport.Location = new System.Drawing.Point(0, 42);
             this.dgvSaleReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSaleReport.Name = "dgvSaleReport";
             this.dgvSaleReport.RowHeadersWidth = 51;
             this.dgvSaleReport.RowTemplate.Height = 24;
-            this.dgvSaleReport.Size = new System.Drawing.Size(857, 359);
+            this.dgvSaleReport.Size = new System.Drawing.Size(964, 449);
             this.dgvSaleReport.TabIndex = 0;
             this.dgvSaleReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSaleReport_CellContentClick);
+            // 
+            // colEditButton
+            // 
+            this.colEditButton.HeaderText = "Edit";
+            this.colEditButton.MinimumWidth = 6;
+            this.colEditButton.Name = "colEditButton";
+            this.colEditButton.Text = "Edit";
+            this.colEditButton.Width = 125;
+            // 
+            // rbWeekly
+            // 
+            this.rbWeekly.AutoSize = true;
+            this.rbWeekly.Location = new System.Drawing.Point(24, 26);
+            this.rbWeekly.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rbWeekly.Name = "rbWeekly";
+            this.rbWeekly.Size = new System.Drawing.Size(138, 24);
+            this.rbWeekly.TabIndex = 1;
+            this.rbWeekly.TabStop = true;
+            this.rbWeekly.Text = "Weekly Report";
+            this.rbWeekly.UseVisualStyleBackColor = true;
+            this.rbWeekly.CheckedChanged += new System.EventHandler(this.RbWeekly_CheckedChanged);
+            // 
+            // rbMonthly
+            // 
+            this.rbMonthly.AutoSize = true;
+            this.rbMonthly.Location = new System.Drawing.Point(24, 58);
+            this.rbMonthly.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rbMonthly.Name = "rbMonthly";
+            this.rbMonthly.Size = new System.Drawing.Size(148, 24);
+            this.rbMonthly.TabIndex = 2;
+            this.rbMonthly.TabStop = true;
+            this.rbMonthly.Text = "MonthLy Report";
+            this.rbMonthly.UseVisualStyleBackColor = true;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(773, 80);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(135, 40);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.Text = "Reload";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Staff:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Today is:";
+            // 
+            // cbChoosing
+            // 
+            this.cbChoosing.FormattingEnabled = true;
+            this.cbChoosing.Location = new System.Drawing.Point(773, 22);
+            this.cbChoosing.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbChoosing.Name = "cbChoosing";
+            this.cbChoosing.Size = new System.Drawing.Size(134, 28);
+            this.cbChoosing.TabIndex = 7;
+            this.cbChoosing.SelectedIndexChanged += new System.EventHandler(this.CbChoosing_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbWeekly);
+            this.groupBox2.Controls.Add(this.rbMonthly);
+            this.groupBox2.Location = new System.Drawing.Point(926, 15);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(184, 105);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "report type";
+            // 
+            // txtYear
+            // 
+            this.txtYear.Location = new System.Drawing.Point(547, 22);
+            this.txtYear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(112, 26);
+            this.txtYear.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(475, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Year:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(678, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Data Type:";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -129,120 +240,16 @@
             this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
             this.timeDataGridViewTextBoxColumn.Width = 125;
             // 
-            // colEditButton
-            // 
-            this.colEditButton.HeaderText = "Edit";
-            this.colEditButton.MinimumWidth = 6;
-            this.colEditButton.Name = "colEditButton";
-            this.colEditButton.Text = "Edit";
-            this.colEditButton.Width = 125;
-            // 
             // saleRecordModelBindingSource
             // 
             this.saleRecordModelBindingSource.DataSource = typeof(SRPS.Model.SaleRecordModel);
             // 
-            // rbWeekly
-            // 
-            this.rbWeekly.AutoSize = true;
-            this.rbWeekly.Location = new System.Drawing.Point(21, 21);
-            this.rbWeekly.Name = "rbWeekly";
-            this.rbWeekly.Size = new System.Drawing.Size(122, 21);
-            this.rbWeekly.TabIndex = 1;
-            this.rbWeekly.TabStop = true;
-            this.rbWeekly.Text = "Weekly Report";
-            this.rbWeekly.UseVisualStyleBackColor = true;
-            this.rbWeekly.CheckedChanged += new System.EventHandler(this.RbWeekly_CheckedChanged);
-            // 
-            // rbMonthly
-            // 
-            this.rbMonthly.AutoSize = true;
-            this.rbMonthly.Location = new System.Drawing.Point(21, 46);
-            this.rbMonthly.Name = "rbMonthly";
-            this.rbMonthly.Size = new System.Drawing.Size(130, 21);
-            this.rbMonthly.TabIndex = 2;
-            this.rbMonthly.TabStop = true;
-            this.rbMonthly.Text = "MonthLy Report";
-            this.rbMonthly.UseVisualStyleBackColor = true;
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Location = new System.Drawing.Point(687, 64);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(120, 32);
-            this.btnConfirm.TabIndex = 4;
-            this.btnConfirm.Text = "Reload";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Staff:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Today is:";
-            // 
-            // cbChoosing
-            // 
-            this.cbChoosing.FormattingEnabled = true;
-            this.cbChoosing.Location = new System.Drawing.Point(687, 18);
-            this.cbChoosing.Name = "cbChoosing";
-            this.cbChoosing.Size = new System.Drawing.Size(120, 24);
-            this.cbChoosing.TabIndex = 7;
-            this.cbChoosing.SelectedIndexChanged += new System.EventHandler(this.CbChoosing_SelectedIndexChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rbWeekly);
-            this.groupBox2.Controls.Add(this.rbMonthly);
-            this.groupBox2.Location = new System.Drawing.Point(823, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(164, 84);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "report type";
-            // 
-            // txtYear
-            // 
-            this.txtYear.Location = new System.Drawing.Point(486, 18);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(100, 22);
-            this.txtYear.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(422, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 17);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Year:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(603, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 17);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Data Type:";
-            // 
             // SaleReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(999, 522);
+            this.ClientSize = new System.Drawing.Size(1119, 651);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtYear);
@@ -258,9 +265,9 @@
             this.Load += new System.EventHandler(this.SaleReport_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSaleReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleRecordModelBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.saleRecordModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
