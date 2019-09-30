@@ -15,7 +15,7 @@ namespace SRPS
     public partial class Login_in : Form
     {
         private int count = 0;
-        MySqlConnection connection = new MySqlConnection("server = localhost; database = test; username = root; password=;");
+        MySqlConnection connection = new MySqlConnection("server = localhost; database = srps; username = root; password=123456;");
         public Login_in()
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace SRPS
                     {
                         MessageBox.Show("welcome");
                         
-                        Main main = new Main();
+                        SaleReport main = new SaleReport();
                         main.Show();
                         this.Hide();
                         
@@ -67,6 +67,11 @@ namespace SRPS
                     }
                 }
             }
+        }
+
+        private void Login_in_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

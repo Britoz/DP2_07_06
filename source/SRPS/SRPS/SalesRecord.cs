@@ -14,7 +14,7 @@ namespace SRPS
 {
     public partial class SalesRecord : Form
     {
-        MySqlConnection connection = new MySqlConnection("server =localhost;database =test;username = root;password =;");
+        MySqlConnection connection = new MySqlConnection("server =localhost;database =srps;username = root;password =123456;");
         static int totalPrice = 0;
         static int totalItems = 0;
         private readonly DataGridView _dataGridView;
@@ -29,7 +29,7 @@ namespace SRPS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            lblDate.Text = DateTime.Today.ToString("yyyy-MM-dd");
             lblTime.Text = DateTime.Now.ToShortTimeString();
             salesNumberUpdate();
         }
@@ -151,14 +151,14 @@ namespace SRPS
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = connection;
 
-                    cmd.CommandText = "insert into salesrecord(salesid,totalprice,staffname,date,time,totalitems)values(@salesid,@totalprice," +
-                        "@staffname,@date,@time,@totalitems)";
+                    cmd.CommandText = "insert into salesrecord(salesid,totalprice,staffname,date,time)values(@salesid,@totalprice," +
+                        "@staffname,@date,@time)";
                     cmd.Parameters.AddWithValue("@salesid", lblSalesNumber.Text);
                     cmd.Parameters.AddWithValue("@totalprice", lblTotal.Text);
                     cmd.Parameters.AddWithValue("@staffname", txtStaffName.Text);
                     cmd.Parameters.AddWithValue("@date", lblDate.Text);
                     cmd.Parameters.AddWithValue("@time", lblTime.Text);
-                    cmd.Parameters.AddWithValue("@totalitems", lblItems.Text);
+                  
 
                     connection.Open();
                     cmd.ExecuteNonQuery();
