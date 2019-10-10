@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SRPS.Controller;
 using MySql.Data.MySqlClient;
-
+using SRPS.View;
 
 namespace SRPS
 {
@@ -57,25 +57,27 @@ namespace SRPS
         {
             saleRecordModelBindingSource.Clear();
             SaleReportController controller = new SaleReportController();
-            MySqlConnection connection = new MySqlConnection("server = localhost; database = test; username = root; password=;");
-            string txt = "select sum(totalprice), sum(totalitems) from salesrecord group by year(date)='" + year.ToString() + "'" + ", month(date)='" + type.ToString() + "'";
+
+            MySqlConnection connection = new MySqlConnection("server = localhost; database = srps; username = root; password=123456;");
+            string txt = "select sum(totalprice) from salesrecord group by year(date)='" + year.ToString() + "'" + ", month(date)='" + type.ToString() + "'";
             MySqlCommand command = new MySqlCommand(txt, connection);
             connection.Open();
             MySqlDataReader r = command.ExecuteReader();
-            MonthlyResult monthlyResult = new MonthlyResult();
+            MonthlyResult monthlyResult = new MonthlyResult((int)type,year);
+            
             while (r.Read())
             {
                 int total = int.Parse(r[0].ToString());
                 int monthly = Convert.ToInt32(type);
-                int totalItems = int.Parse(r[1].ToString());
+                //int totalItems = int.Parse(r[1].ToString());
 
-                monthlyResult.LoadData(year, monthly, total, totalItems);
+                monthlyResult.LoadData(year, monthly, total);
             }
             monthlyResult.Show();
-            foreach (var data in controller.GetALlSaleRecordByMonthAndYear(type, year))
-            {
-                saleRecordModelBindingSource.Add(data);
-            }
+            //foreach (var data in controller.GetALlSaleRecordByMonthAndYear(type, year))
+            //{
+            //    saleRecordModelBindingSource.Add(data);
+            //}
             
             
         }
@@ -122,26 +124,39 @@ namespace SRPS
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            int year = 0;
-
-            try
+            if(txtYear.Text != "")
             {
-                year = Convert.ToInt32(txtYear.Text);
+                int year = 0;
 
-                if (year >= 2000 && year <= DateTime.Now.Year)
+                try
                 {
-                    LoadMonthlyData((monthInYear)cbChoosing.SelectedIndex + 1, year);
+                    year = Convert.ToInt32(txtYear.Text);
+
+                    if (year >= 2000 && year <= DateTime.Now.Year)
+                    {
+                        LoadMonthlyData((monthInYear)cbChoosing.SelectedIndex + 1, year);
+                    }
+                    else
+                    {
+                        MessageBox.Show("invalide year");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("invalide year");
+                    MessageBox.Show("year cannot be empty: " + ex);
                 }
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show("year cannot be empty: " + ex);
+                LoadDataToSaleReport();
             }
            
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            SalesRecord add = new SalesRecord();
+            add.Show();
         }
     }
 }
