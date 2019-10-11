@@ -65,6 +65,22 @@ namespace SRPS.Controller
             return datas.GetSaleByMonthInYear(choosing, year);
         }
 
+        //it basically to send the request to Model, then model will get all value that controller ask about
+        // weekly
+        public List<SaleRecordModel> GetAllSaleRecordByWeekAndYear(int week, int year)
+        {
+            //we have to make the connection between controller and model first
+            SaleRecordDBModel datas = new SaleRecordDBModel();
+
+            //then we can make the connection of Model to database
+            datas.GetConnectionString(connection.server,
+                connection.database, connection.username, connection.password); //1
+
+            //get the response from Model about the week in year
+            return datas.GetSaleByWeekInYear(week, year);
+
+        }
+
         public SaleRecordModel GetValueByID(string id)
         {
             SaleRecordDBModel datas = new SaleRecordDBModel();

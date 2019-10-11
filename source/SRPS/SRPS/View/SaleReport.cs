@@ -27,15 +27,29 @@ namespace SRPS
         public void initSetting()
         {
             rbMonthly.Checked = true;
-
-            if(rbMonthly.Checked == true)
+            LoadListMonth();
+            rbMonthly.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            rbWeekly.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+        }
+        //load all month in one year to the combobox
+        private void LoadListMonth()
+        {
+            
+            foreach (var month in monthly)
             {
-                foreach(var month in monthly)
-                {
-                    cbChoosing.Items.Add(month);
-                }
+                cbChoosing.Items.Add(month);
             }
             cbChoosing.Text = "Choosing month";
+        }
+
+        //we will load all 52 week to the combobox
+        private void LoadListWeek()
+        {
+            for (int i = 1;i<=52;i++)
+            {
+                cbChoosing.Items.Add(i);
+            }
+            cbChoosing.Text = "Choosing week";
         }
 
         private void GroupBox1_Enter(object sender, EventArgs e)
@@ -48,6 +62,25 @@ namespace SRPS
             saleRecordModelBindingSource.Clear();
             SaleReportController controller = new SaleReportController();
             foreach (var data in controller.GetAllSaleRecord())
+            {
+                saleRecordModelBindingSource.Add(data);
+            }
+        }
+
+        //we will load the weekly by get the week and the year and send the request to ask the datas of the weekly 
+        //to controller, then controller will do the rest.
+        //after get the value from controller, we will store them to the saleRecord Model
+        private void LoadWeeklyData(int week, int year)
+        {
+            //we call the controller to send the request
+            SaleReportController controller = new SaleReportController();
+
+            //firstly we have to clear the sale record to make sure it will be empty before reload it again
+            saleRecordModelBindingSource.Clear();
+
+            //View will send the request to controller to ask the value in specifict week in that year
+            //then we will get each date in that week and show them in Sale record
+            foreach (var data in controller.GetAllSaleRecordByWeekAndYear(week, year))
             {
                 saleRecordModelBindingSource.Add(data);
             }
@@ -112,11 +145,6 @@ namespace SRPS
 
         }
 
-        private void CbChoosing_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void RbWeekly_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -124,33 +152,77 @@ namespace SRPS
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            //year cannot be empty, because that we need year to know which month in year or which week in year
             if(txtYear.Text != "")
             {
                 int year = 0;
+                //checking if they want to sort the report by Monthly or by Weekly
 
-                try
+                if (rbMonthly.Checked)
                 {
-                    year = Convert.ToInt32(txtYear.Text);
+                    try
+                    {
+                        year = Convert.ToInt32(txtYear.Text);
 
-                    if (year >= 2000 && year <= DateTime.Now.Year)
-                    {
-                        LoadMonthlyData((monthInYear)cbChoosing.SelectedIndex + 1, year);
+                        if (year >= 2000 && year <= DateTime.Now.Year)
+                        {
+                            LoadMonthlyData((monthInYear)cbChoosing.SelectedIndex + 1, year);
+                        }
+                        else
+                        {
+                            MessageBox.Show("invalide year");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("invalide year");
+                        MessageBox.Show("year cannot be empty: " + ex);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("year cannot be empty: " + ex);
+                    try
+                    {
+                        year = Convert.ToInt32(txtYear.Text);
+
+                        if (year >= 2000 && year <= DateTime.Now.Year)
+                        {
+                            LoadWeeklyData(cbChoosing.SelectedIndex + 1, year);
+                        }
+                        else
+                        {
+                            MessageBox.Show("invalide year");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("year cannot be empty: " + ex);
+                    }
                 }
+                
             }
             else
             {
-                LoadDataToSaleReport();
+                
             }
            
+        }
+
+        //allow user to change the combobox while they change the radio button
+        private void radioButtons_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton radioButton = sender as RadioButton;
+
+            //before we reload the combobox, we have to clear all previous value first, 
+            //in case of we dupplicate vaule
+            cbChoosing.Items.Clear();
+            if (rbMonthly.Checked)
+            {
+                LoadListMonth();
+            }
+            else if (rbWeekly.Checked)
+            {
+                LoadListWeek();
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
