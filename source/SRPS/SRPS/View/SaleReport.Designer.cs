@@ -156,7 +156,7 @@
             this.cbChoosing.Name = "cbChoosing";
             this.cbChoosing.Size = new System.Drawing.Size(120, 24);
             this.cbChoosing.TabIndex = 7;
-            this.cbChoosing.SelectedIndexChanged += new System.EventHandler(this.CbChoosing_SelectedIndexChanged);
+
             // 
             // groupBox2
             // 

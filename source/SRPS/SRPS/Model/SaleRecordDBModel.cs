@@ -75,7 +75,17 @@ namespace SRPS.Model
             
             return dbListDataComment(txt);
         }
-        
+        //we will give the other fucntion to do the comment connect directly to database
+        //in this function, we just need to get the comment
+        //and return the list of sale record
+        public List<SaleRecordModel> GetSaleByWeekInYear(int week, int year)
+        {
+            //result
+            string txt = "SELECT * FROM `salesrecord` WHERE WEEK(date) = " + week + " and Year(date) = " + year + "";
+
+            return dbListDataComment(txt);
+        }
+
 
         public SaleRecordModel GetSaleRecordByID(string id)
         {
