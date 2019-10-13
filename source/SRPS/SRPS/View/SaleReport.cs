@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SRPS.Controller;
 using MySql.Data.MySqlClient;
 using SRPS.View;
+using System.IO;
 
 namespace SRPS
 {
@@ -229,6 +230,81 @@ namespace SRPS
         {
             SalesRecord add = new SalesRecord();
             add.Show();
+        }
+
+        private void btnExtractCSV_Click(object sender, EventArgs e)
+        {
+            StringBuilder csvContent = new StringBuilder();
+
+            WriteTitleCSVFile(csvContent);
+            WriteValueCSVFile(csvContent);
+
+            string csvPath = "";
+            //looking the file, if it is not exit, create new
+            System.Windows.Forms.FolderBrowserDialog dlg = new System.Windows.Forms.FolderBrowserDialog();
+            dlg.SelectedPath = @"C:\Users\lythe\OneDrive - Swinburne University\year 3\sem 2\DP2\Clone\DP2_07_06\source\SRPS\SRPS\CSV\";
+            // This is what will execute if the user selects a folder and hits OK (File if you change to FileBrowserDialog)
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                csvPath = dlg.SelectedPath;
+
+                if (rbMonthly.Checked)
+                {
+                    csvPath += @"\monthly.csv";
+                }
+                else if (rbWeekly.Checked)
+                {
+                    csvPath += @"\weekly.csv";
+                }
+
+                try
+                {
+                    File.WriteAllText(csvPath, csvContent.ToString());
+                    MessageBox.Show("write file successful");
+                }
+                catch (DirectoryNotFoundException exc)
+                {
+                    MessageBox.Show("Path not exit: " + exc);
+                }
+            }
+            else
+            {
+                // This prevents a crash when you close out of the window with nothing
+            }
+        }
+
+        private void WriteTitleCSVFile(StringBuilder csvContent)
+        {
+            int numberOfColumn = dgvSaleReport.DisplayedColumnCount(true);
+
+            string titleName = "";
+            for(int i = 0; i<numberOfColumn-1; i++)
+            {
+                titleName += dgvSaleReport.Columns[i].DataPropertyName + ",";
+            }
+            titleName += dgvSaleReport.Columns[numberOfColumn-1].DataPropertyName;
+
+            csvContent.AppendLine(titleName);
+        }
+
+        private void WriteValueCSVFile(StringBuilder csvContent)
+        {
+            int numberOfValue = dgvSaleReport.DisplayedRowCount(true) - 1;
+            int numberOfColumn = dgvSaleReport.DisplayedColumnCount(true);
+
+            for(int i=0;i< numberOfValue; i++)
+            {
+                DataGridViewRow gvr = dgvSaleReport.Rows[i];
+                string columnValue = "";
+                for (int j=0;j < numberOfColumn - 1; j++)
+                {
+                    //gvr.Cells[0].Value.ToString()
+                    columnValue += gvr.Cells[j].Value.ToString() + ",";
+                }
+                columnValue += gvr.Cells[numberOfColumn-1].Value.ToString();
+
+                csvContent.AppendLine(columnValue);
+            }
         }
     }
 }

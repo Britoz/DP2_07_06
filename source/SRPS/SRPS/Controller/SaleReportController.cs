@@ -7,50 +7,23 @@ using SRPS.Model;
 
 namespace SRPS.Controller
 {
-    public enum monthInYear
-    {
-        January, 
-        February, 
-        March, 
-        April, 
-        May,
-        June,
-        July,
-        August,
-        September,
-        October,
-        November,
-        December
-    }
 
-
-    public struct connectionSetting
-    {
-        public string server;
-        public string database;
-        public string username;
-        public string password;
-
-    }
+    
     public class SaleReportController
     {
-        
         SaleRecordModel model = new SaleRecordModel();
         connectionSetting connection = new connectionSetting();
 
         public SaleReportController()
         {
-            connection.server = "localhost";
-            connection.database = "srps";
-            connection.username = "root";
-            connection.password ="123456";
         }
+        
         public List<SaleRecordModel> GetAllSaleRecord()
         {
             SaleRecordDBModel datas = new SaleRecordDBModel();
             
-            datas.GetConnectionString(connection.server,
-                connection.database, connection.username, connection.password); //1
+            datas.GetConnectionString(connection.server(),
+                connection.database(), connection.username(), connection.password()); //1
             
             return datas.GetALLSaleRecord();
         }
@@ -59,8 +32,8 @@ namespace SRPS.Controller
         {
             SaleRecordDBModel datas = new SaleRecordDBModel();
 
-            datas.GetConnectionString(connection.server,
-                connection.database, connection.username, connection.password); //1
+            datas.GetConnectionString(connection.server(),
+                connection.database(), connection.username(), connection.password()); //1
 
             return datas.GetSaleByMonthInYear(choosing, year);
         }
@@ -73,8 +46,8 @@ namespace SRPS.Controller
             SaleRecordDBModel datas = new SaleRecordDBModel();
 
             //then we can make the connection of Model to database
-            datas.GetConnectionString(connection.server,
-                connection.database, connection.username, connection.password); //1
+            datas.GetConnectionString(connection.server(),
+                connection.database(), connection.username(), connection.password()); //1
 
             //get the response from Model about the week in year
             return datas.GetSaleByWeekInYear(week, year);
@@ -85,8 +58,8 @@ namespace SRPS.Controller
         {
             SaleRecordDBModel datas = new SaleRecordDBModel();
 
-            datas.GetConnectionString(connection.server,
-                connection.database, connection.username, connection.password); //1
+            datas.GetConnectionString(connection.server(),
+                connection.database(), connection.username(), connection.password()); //1
 
             return datas.GetSaleRecordByID(id);
         }
@@ -94,8 +67,8 @@ namespace SRPS.Controller
         {
             SaleRecordDBModel datas = new SaleRecordDBModel();
 
-            datas.GetConnectionString(connection.server,
-                connection.database, connection.username, connection.password); //1
+            datas.GetConnectionString(connection.server(),
+                connection.database(), connection.username(), connection.password()); //1
 
             return datas.GetDeleteData(deletData);
         }
@@ -104,8 +77,8 @@ namespace SRPS.Controller
         {
             SaleRecordDBModel datas = new SaleRecordDBModel();
 
-            datas.GetConnectionString(connection.server,
-                connection.database, connection.username, connection.password); ;
+            datas.GetConnectionString(connection.server(),
+                connection.database(), connection.username(), connection.password());
 
             return datas.GetUpdateValue(newData);
         }
