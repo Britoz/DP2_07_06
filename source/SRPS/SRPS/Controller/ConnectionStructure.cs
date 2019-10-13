@@ -32,7 +32,7 @@ namespace SRPS.Controller
 
         public string database()
         {
-            return "srps";
+            return "test";
         }
 
         public string username()
@@ -42,7 +42,7 @@ namespace SRPS.Controller
 
         public string password()
         {
-            return "123456";
+            return "";
         }
 
     }
