@@ -9,17 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using SRPS;
+using SRPS.Controller;
 
 namespace SRPS
 {
     public partial class Login_in : Form
     {
+        connectionSetting connectionValue = new connectionSetting();
+
         private int count = 0;
-        MySqlConnection connection = new MySqlConnection("server = localhost; database = test; username = root; password=;");
+        MySqlConnection connection;
+
         public Login_in()
         {
+            connection = new MySqlConnection("server = " + connectionValue.server()
+                + "; database = " + connectionValue.database() + "; username = "+connectionValue.username()
+                +"; password="+connectionValue.password()+";");
             InitializeComponent();
-            
         }
 
         private void Btbgo_Click(object sender, EventArgs e)

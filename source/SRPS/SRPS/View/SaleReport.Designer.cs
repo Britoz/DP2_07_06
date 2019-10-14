@@ -31,7 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSaleReport = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEditButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.saleRecordModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.rbWeekly = new System.Windows.Forms.RadioButton();
             this.rbMonthly = new System.Windows.Forms.RadioButton();
@@ -44,16 +50,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saleRecordModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnExtractCSV = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSaleReport)).BeginInit();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.saleRecordModelBindingSource)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -90,6 +91,46 @@
             this.dgvSaleReport.TabIndex = 0;
             this.dgvSaleReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSaleReport_CellContentClick);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // totalPriceDataGridViewTextBoxColumn
+            // 
+            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            this.totalPriceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // staffNameDataGridViewTextBoxColumn
+            // 
+            this.staffNameDataGridViewTextBoxColumn.DataPropertyName = "StaffName";
+            this.staffNameDataGridViewTextBoxColumn.HeaderText = "StaffName";
+            this.staffNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.staffNameDataGridViewTextBoxColumn.Name = "staffNameDataGridViewTextBoxColumn";
+            this.staffNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // timeDataGridViewTextBoxColumn
+            // 
+            this.timeDataGridViewTextBoxColumn.DataPropertyName = "Time";
+            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
+            this.timeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
+            this.timeDataGridViewTextBoxColumn.Width = 125;
+            // 
             // colEditButton
             // 
             this.colEditButton.HeaderText = "Edit";
@@ -97,6 +138,10 @@
             this.colEditButton.Name = "colEditButton";
             this.colEditButton.Text = "Edit";
             this.colEditButton.Width = 125;
+            // 
+            // saleRecordModelBindingSource
+            // 
+            this.saleRecordModelBindingSource.DataSource = typeof(SRPS.Model.SaleRecordModel);
             // 
             // rbWeekly
             // 
@@ -156,7 +201,6 @@
             this.cbChoosing.Name = "cbChoosing";
             this.cbChoosing.Size = new System.Drawing.Size(120, 24);
             this.cbChoosing.TabIndex = 7;
-
             // 
             // groupBox2
             // 
@@ -204,49 +248,15 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // idDataGridViewTextBoxColumn
+            // btnExtractCSV
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // totalPriceDataGridViewTextBoxColumn
-            // 
-            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
-            this.totalPriceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // staffNameDataGridViewTextBoxColumn
-            // 
-            this.staffNameDataGridViewTextBoxColumn.DataPropertyName = "StaffName";
-            this.staffNameDataGridViewTextBoxColumn.HeaderText = "StaffName";
-            this.staffNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.staffNameDataGridViewTextBoxColumn.Name = "staffNameDataGridViewTextBoxColumn";
-            this.staffNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // timeDataGridViewTextBoxColumn
-            // 
-            this.timeDataGridViewTextBoxColumn.DataPropertyName = "Time";
-            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
-            this.timeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
-            this.timeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // saleRecordModelBindingSource
-            // 
-            this.saleRecordModelBindingSource.DataSource = typeof(SRPS.Model.SaleRecordModel);
+            this.btnExtractCSV.Location = new System.Drawing.Point(425, 64);
+            this.btnExtractCSV.Name = "btnExtractCSV";
+            this.btnExtractCSV.Size = new System.Drawing.Size(126, 32);
+            this.btnExtractCSV.TabIndex = 13;
+            this.btnExtractCSV.Text = "Extract CSV File";
+            this.btnExtractCSV.UseVisualStyleBackColor = true;
+            this.btnExtractCSV.Click += new System.EventHandler(this.btnExtractCSV_Click);
             // 
             // SaleReport
             // 
@@ -254,6 +264,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(995, 521);
+            this.Controls.Add(this.btnExtractCSV);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -270,9 +281,9 @@
             this.Load += new System.EventHandler(this.SaleReport_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSaleReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saleRecordModelBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.saleRecordModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,5 +312,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnExtractCSV;
     }
 }
