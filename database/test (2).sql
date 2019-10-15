@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2019 at 07:06 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.1.32
+-- Generation Time: Oct 14, 2019 at 02:35 AM
+-- Server version: 10.1.39-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -72,17 +72,32 @@ INSERT INTO `product` (`id`, `name`, `serialnumber`, `description`, `quantity`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `salesproduct`
+-- Table structure for table `productsales`
 --
 
-CREATE TABLE `salesproduct` (
+CREATE TABLE `productsales` (
   `id` int(11) NOT NULL,
   `salesid` int(11) NOT NULL,
   `productname` varchar(255) NOT NULL,
-  `quantity` int(11) NOT NULL,
+  `quantity` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
-  `grosstotal` int(11) NOT NULL
+  `grosstotal` int(11) NOT NULL,
+  `datetime` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `productsales`
+--
+
+INSERT INTO `productsales` (`id`, `salesid`, `productname`, `quantity`, `price`, `grosstotal`, `datetime`) VALUES
+(1, 1, 'Liver Detox', '5', 25, 125, '2019-06-11'),
+(2, 2, 'Liver Detox', '3', 25, 75, '2019-10-01'),
+(3, 1, 'Liver Detox', '5', 25, 125, '2019-09-05'),
+(4, 2, 'Swisse Hibicus Anti Ageing Night Cream', '5', 13, 65, '2019-05-10'),
+(5, 3, 'Liver Detox', '5', 25, 125, '2019-05-15'),
+(6, 4, 'Liver Detox', '1', 25, 25, '2019-06-12'),
+(7, 5, 'Liver Detox', '4', 25, 100, '2019-07-17'),
+(8, 6, 'Liver Detox', '2', 25, 50, '2019-08-07');
 
 -- --------------------------------------------------------
 
@@ -96,18 +111,31 @@ CREATE TABLE `salesrecord` (
   `totalprice` int(11) NOT NULL,
   `staffname` text NOT NULL,
   `date` varchar(255) NOT NULL,
-  `time` time NOT NULL
+  `time` time NOT NULL,
+  `totalitems` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `salesrecord`
 --
 
-INSERT INTO `salesrecord` (`id`, `salesid`, `totalprice`, `staffname`, `date`, `time`) VALUES
-(10, 10, 12, 'Dinh', '24/09/2019', '07:47:00'),
-(11, 11, 43, 'Dinh', '24/09/2019', '07:47:00'),
-(12, 12, 25, 'Dinh', '24/09/2019', '08:48:00'),
-(13, 13, 10, 'Dinh', '25/09/2019', '03:04:00');
+INSERT INTO `salesrecord` (`id`, `salesid`, `totalprice`, `staffname`, `date`, `time`, `totalitems`) VALUES
+(10, 10, 12, 'Dinh', '24/09/2019', '07:47:00', 0),
+(11, 11, 43, 'Dinh', '24/09/2019', '07:47:00', 0),
+(12, 12, 25, 'Dinh', '24/09/2019', '08:48:00', 0),
+(13, 13, 10, 'Dinh', '25/09/2019', '03:04:00', 0),
+(14, 14, 175, 'Dinh', '28/09/2019', '01:24:00', 0),
+(15, 15, 52, 'Dinh', '28/09/2019', '01:31:00', 0),
+(16, 16, 52, 'dih', '28/09/2019', '01:34:00', 0),
+(17, 17, 24, 'd', '28/09/2019', '01:37:00', 0),
+(18, 18, 12, 'dinh', '28/09/2019', '01:38:00', 0),
+(19, 19, 93, 'dinh', '28/09/2019', '01:47:00', 3),
+(20, 20, 115, 'Dinh', '10/10/2019', '04:18:00', 7),
+(21, 21, 155, 'DInh', '10/10/2019', '04:28:00', 10),
+(22, 22, 54, 'DInh', '10/10/2019', '04:30:00', 9),
+(23, 23, 30, 'd', '10/10/2019', '04:33:00', 5),
+(24, 24, 125, 'd', '10/10/2019', '04:45:00', 5),
+(25, 25, 65, 'd', '10/10/2019', '04:47:00', 5);
 
 --
 -- Indexes for dumped tables
@@ -126,9 +154,9 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `salesproduct`
+-- Indexes for table `productsales`
 --
-ALTER TABLE `salesproduct`
+ALTER TABLE `productsales`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -154,16 +182,16 @@ ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `salesproduct`
+-- AUTO_INCREMENT for table `productsales`
 --
-ALTER TABLE `salesproduct`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `productsales`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `salesrecord`
 --
 ALTER TABLE `salesrecord`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
