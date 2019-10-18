@@ -9,20 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using SRPS.Model;
+using SRPS.Controller;
 
 namespace SRPS
 {
     public partial class SalesRecord : Form
     {
-        MySqlConnection connection = new MySqlConnection("server =localhost;database =srps;username = root;password =123456;");
+        ConnectionStructor connectionData;
+        MySqlConnection connection;
         static int totalPrice = 0;
         static int totalItems = 0;
         private readonly DataGridView _dataGridView;
+        private List<string> listName = new List<string>();
 
         public DataGridView DataGridView => _dataGridView;
 
         public SalesRecord()
         {
+            connectionData = new ConnectionStructor();
+            connection = new MySqlConnection("server ="+ connectionData.server()
+                + ";database ="+ connectionData.database()+ ";username = "+ connectionData.username()
+                + ";password ="+connectionData.password()+";");
             InitializeComponent();
             _dataGridView = dataGridView1;
         }
@@ -133,6 +140,7 @@ namespace SRPS
             connection.Close();
         }
 
+
         private void Button1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count == 1)
@@ -147,7 +155,8 @@ namespace SRPS
             }
             else
             {
-                try {
+                try
+                {
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = connection;
 
@@ -158,7 +167,7 @@ namespace SRPS
                     cmd.Parameters.AddWithValue("@staffname", txtStaffName.Text);
                     cmd.Parameters.AddWithValue("@date", lblDate.Text);
                     cmd.Parameters.AddWithValue("@time", lblTime.Text);
-                  
+
 
                     connection.Open();
                     cmd.ExecuteNonQuery();
@@ -171,8 +180,9 @@ namespace SRPS
                     dataGridView1.Rows.Clear();
                     salesNumberUpdate();
 
-                    
-                }catch(Exception ee)
+
+                }
+                catch (Exception ee)
                 {
                     MessageBox.Show(ee.Message, "Invalid Database!");
                 }

@@ -23,7 +23,7 @@ namespace SRPS.Controller
     }
 
 
-    public struct connectionSetting
+    public struct ConnectionStructor
     {
         public string server()
         {

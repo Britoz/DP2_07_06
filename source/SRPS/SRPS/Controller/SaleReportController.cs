@@ -7,12 +7,10 @@ using SRPS.Model;
 
 namespace SRPS.Controller
 {
-
-    
     public class SaleReportController
     {
         SaleRecordModel model = new SaleRecordModel();
-        connectionSetting connection = new connectionSetting();
+        ConnectionStructor connection = new ConnectionStructor();
 
         public SaleReportController()
         {

@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using SRPS;
+using SRPS.View;
 using SRPS.Controller;
 
 namespace SRPS
 {
     public partial class Login_in : Form
     {
-        connectionSetting connectionValue = new connectionSetting();
+        ConnectionStructor connectionValue = new ConnectionStructor();
 
         private int count = 0;
         MySqlConnection connection;
@@ -60,11 +60,22 @@ namespace SRPS
                     data.Fill(datatable);
                     if (datatable.Rows.Count == 1)
                     {
-                        MessageBox.Show("welcome");
-                        
-                        Main main = new Main();
-                        main.Show();
-                        this.Hide();
+                        if(username != "admin")
+                        {
+                            MessageBox.Show("welcome: " + username);
+
+                            Main main = new Main();
+                            main.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("welcome admin");
+
+                            Admin admin = new Admin();
+                            admin.Show();
+                            this.Hide();
+                        }
                         
                     }
                     else

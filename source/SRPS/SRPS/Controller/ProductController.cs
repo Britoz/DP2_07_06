@@ -9,7 +9,7 @@ namespace SRPS.Controller
 {
     class ProductController
     {
-        connectionSetting connection = new connectionSetting();
+        ConnectionStructor connection = new ConnectionStructor();
 
         public ProductController()
         {
@@ -23,6 +23,16 @@ namespace SRPS.Controller
                 connection.database(), connection.username(), connection.password()); //1
 
             return datas.GetProductByID(id);
+        }
+
+        public bool AddProduct(SalesProductModel data)
+        {
+            ProductDBModel datas = new ProductDBModel();
+
+            datas.GetConnectionString(connection.server(),
+                connection.database(), connection.username(), connection.password()); //1
+
+            return datas.AddProduct(data);
         }
     }
 }
