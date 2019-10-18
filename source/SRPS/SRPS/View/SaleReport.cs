@@ -16,6 +16,8 @@ namespace SRPS
 {
     public partial class SaleReport : Form
     {
+        private ConnectionStructor connectData = new ConnectionStructor();
+
         private string[] monthly = new string[] { "January", "February", "March", "April", "May",
         "June","July","August","September","October","November","December"};
         public SaleReport()
@@ -58,6 +60,11 @@ namespace SRPS
 
         }
 
+
+        /// <summary>
+        ///we load all data to sale report when the user forget to set the year or if they
+        ///want to see all sale report
+        /// </summary>
         private void LoadDataToSaleReport()
         {
             saleRecordModelBindingSource.Clear();
@@ -92,11 +99,16 @@ namespace SRPS
             saleRecordModelBindingSource.Clear();
             SaleReportController controller = new SaleReportController();
 
-            MySqlConnection connection = new MySqlConnection("server = localhost; database = srps; username = root; password=123456;");
+            MySqlConnection connection = 
+                new MySqlConnection("server = "+ connectData.server()
+                +"; database = "+connectData.database()
+                +"; username = "+connectData.username()+"; password="+connectData.password()+";");
+            
             string txt = "select sum(totalprice) from salesrecord group by year(date)='" + year.ToString() + "'" + ", month(date)='" + type.ToString() + "'";
             MySqlCommand command = new MySqlCommand(txt, connection);
             connection.Open();
             MySqlDataReader r = command.ExecuteReader();
+
             MonthlyResult monthlyResult = new MonthlyResult((int)type,year);
             
             while (r.Read())
@@ -108,12 +120,6 @@ namespace SRPS
                 monthlyResult.LoadData(year, monthly, total);
             }
             monthlyResult.Show();
-            //foreach (var data in controller.GetALlSaleRecordByMonthAndYear(type, year))
-            //{
-            //    saleRecordModelBindingSource.Add(data);
-            //}
-            
-            
         }
 
         private void lsvSaleReport_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,7 +209,7 @@ namespace SRPS
             }
             else
             {
-                
+                LoadDataToSaleReport();
             }
            
         }

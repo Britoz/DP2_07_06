@@ -12,6 +12,8 @@ namespace SRPS.Model
         private string _name;
         private int _serialnumber;
         private int _quantity;
+        private string _description;
+        private string _dateImport;
         private int _unitprice;
 
         public string Id
@@ -79,14 +81,43 @@ namespace SRPS.Model
             }
         }
 
+        public string Description
+        {
+            get
+            {
+                return _description;
+            }
+
+            set
+            {
+                _description = value;
+            }
+        }
+
+        public string DateImport
+        {
+            get
+            {
+                return _dateImport;
+            }
+
+            set
+            {
+                _dateImport = value;
+            }
+        }
+
         public SalesProductModel() { }
-        public SalesProductModel(string id, string name, int serialnumber, int quantity,int unitprice )
+        public SalesProductModel(string id, string name,string description, int serialnumber, int quantity,int unitprice,
+            string dateImport)
         {
             Id = id;
             Name = name;
             Serialnumber = serialnumber;
             Quantity = quantity;
             Unitprice = unitprice;
+            Description = description;
+            DateImport = dateImport;
         }
     }
 }
