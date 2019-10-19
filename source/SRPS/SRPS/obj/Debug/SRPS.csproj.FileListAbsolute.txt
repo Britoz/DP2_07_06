@@ -81,3 +81,6 @@ C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\DP2_07_06\source\SRPS\SRPS\obj\Debug\S
 C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.Main.resources
 C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.View.MonthlyResult.resources
 C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.Prediction.resources
+C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.View.Admin.resources
+C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.View.ProductAddForm.resources
+C:\School\Bachelor\SEM1YEAR4\DEVELOPMENT2\DP2_07_06\source\SRPS\SRPS\obj\Debug\SRPS.View.UserForm.resources

@@ -90,5 +90,11 @@ namespace SRPS
         {
 
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            UserForm user = new UserForm();
+            user.Show(this);
+        }
     }
 }
