@@ -37,5 +37,11 @@ namespace SRPS
             prediction.Show();
             this.Hide();
         }
+
+        private void PbAddProduct_Click(object sender, EventArgs e)
+        {
+            View.ProductAddForm addProduct = new View.ProductAddForm();
+            addProduct.Show(this);
+        }
     }
 }
